@@ -1,2 +1,81 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<div class="admin-section">
+    <div class="header-section">
+        <div class="container">
+            <nav class="navbar navbar-light navbar-expand-md p-0">
+                <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav-section" type="button">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse" id="nav-section">
+                    <ul class="nav navbar-nav">
+                        <li class="nav-item active">
+                            <a href="/" class="nav-link px-3">Dashboard</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/users" class="nav-link px-3">Users</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/products" class="nav-link px-3">Products</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/categories" class="nav-link px-3">Categories</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/orders" class="nav-link px-3">Orders</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/admins" class="nav-link px-3">Admins</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <div class="intro-section">
+        <div class="container">
+            <div class="d-flex align-items-center py-30">
+                <div class="flex-grow-1 flex-shrink-1">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb mb-0 align-items-center">
+                            <li class="breadcrumb-item"><a href="index.html"><i
+                                        class="bi bi-house-door-fill icon-1"></i></a></li>
+                            <li class="breadcrumb-item text-uppercase active">Dashboard</li>
+                        </ol>
+                    </nav>
+                    <h1 class="m-0 fw-bold">Dashboard</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main-section">
+        <div class="container">
+            <div class="chart-container card mx-auto">
+                <div class="card-header bg-white d-flex align-items-center flex-wrap" id="datePicker">
+                    <h4 class="card-header__title flex m-2 m-sm-0">Current Sales</h4>
+                    <div data-toggle="flatpickr" data-flatpickr-wrap="true" data-flatpickr-static="true"
+                        data-flatpickr-mode="range" data-flatpickr-alt-format="Y-m-d" data-flatpickr-date-format="Y-m-d">
+                        <form id="dateSubmit" action="/dashboard" method="get">
+                            <input class="link-date" name="dateRange" value="{{dateFormat fromDate " YYYY-MM-DD"}} to {{dateFormat toDate "YYYY-MM-DD" }}" data-input>
+                        </form>
+                    </div>
+                </div>
+                <div class="card-body text-muted">
+                    <div class="chart">
+                        <canvas id="revenueChart">
+                        </canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="chart-container card mx-auto">
+                <div class="card-header bg-white d-flex align-items-center">
+                    <h4 class="card-header__title flex m-2 m-sm-0">Top 10 sales</h4>
+                </div>
+                <div class="card-body text-muted">
+                    <div class="chart">
+                        <canvas id="topTenChart">
+                        </canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -3,14 +3,27 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node ./bin/www",
+    "dev": "nodemon ./bin/www"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
+    "dotenv": "^16.0.1",
     "express": "~4.16.1",
-    "hbs": "~4.0.4",
+    "handlebars-dateformat": "^1.1.2",
+    "hbs": "^4.0.6",
     "http-errors": "~1.6.3",
-    "morgan": "~1.9.1"
+    "morgan": "~1.9.1",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.19.0",
+    "sequelize-auto": "^0.8.8",
+    "uuid": "^8.3.2"
+  },
+  "nodemonConfig": {
+    "ext": "js,hbs"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.16"
   }
 }
