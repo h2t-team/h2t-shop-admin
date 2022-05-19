@@ -1,0 +1,69 @@
+<div class="admin-section">
+    <div class="container pt-5">
+        <div class="row">
+            <div class="col-xxl-4 offset-xxl-4 col-lg-6 offset-lg-3 col-sm-8 offset-sm-2">
+                <div class="p-4 p-md-5 card">
+                    <div class="d-flex justify-content-center mt-2 mb-5 navbar-light">
+                        <a href="/auth/login" class="navbar-brand" style="min-width: 0;">
+                            <img class="navbar-brand-icon"
+                                src="/images/stack-logo-blue.svg"
+                                width="25"
+                                alt="Login">
+                            <span class="fw-bold">Login</span>
+                        </a>
+                    </div>
+            <h4 class="m-0 text-center">Welcome back!</h4>
+            <p class="mb-5 text-center">Login to access your TiMa Account </p>
+            <form method="post">
+                <div class="form-group">
+                    <label class="text-label" for="username">Username:</label>
+                    <div class="input-group input-group-merge">
+                        <input id="username"
+                            type="text"
+                            class="form-control form-control-prepended"
+                            placeholder="Ex: huy123456"
+                            name="username">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">
+                                <i class="bi bi-person-fill"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="text-label"
+                        for="password">Password:</label>
+                    <div class="input-group input-group-merge">
+                        <input id="password"
+                            type="password"
+                            class="form-control form-control-prepended"
+                            placeholder="Enter your password"
+                            name="password">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">
+                                <i class="bi bi-key-fill"></i>
+                            </div>
+                        </div>
+                    </div>
+                    {{#if message}}
+                        <div class="invalid-text mt-2">{{message}}</div>
+                    {{/if}}
+                </div>
+                <div class="form-group mb-5">
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox"
+                            class="custom-control-input"
+                            checked=""
+                            id="remember">
+                        <label class="custom-control-label plain" for="remember">Remember me</label>
+                    </div>
+                </div>
+                <div class="form-group text-center">
+                    <button class="btn btn-primary" type="submit">Login</button>
+                </div>
+            </form>
+        </div>
+            </div>
+        </div>
+    </div>
+</div>

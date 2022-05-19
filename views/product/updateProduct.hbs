@@ -1,0 +1,175 @@
+<div class="admin-section">
+    <div class="header-section">
+        <div class="container">
+            <nav class="navbar navbar-light navbar-expand-md p-0">
+                <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav-section" type="button">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse" id="nav-section">
+                    <ul class="nav navbar-nav">
+                        <li class="nav-item">
+                            <a href="/" class="nav-link px-3">Dashboard</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/users" class="nav-link px-3">Users</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a href="/products" class="nav-link px-3">Products</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/categories" class="nav-link px-3">Categories</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/orders" class="nav-link px-3">Orders</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/admins" class="nav-link px-3">Admins</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <div class="intro-section">
+        <div class="container">
+            <div class="d-flex align-items-center py-30">
+                <div class="flex-grow-1 flex-shrink-1">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb mb-0 align-items-center">
+                            <li class="breadcrumb-item">
+                                <a href="/"><i class="bi bi-house-door-fill icon-1"></i></a>
+                            </li>
+                            <li class="breadcrumb-item text-uppercase active">
+                                Products
+                            </li>
+                            <li class="breadcrumb-item text-uppercase active">
+                                {{title}}
+                            </li>
+                        </ol>
+                    </nav>
+                    <h1 class="m-0 fw-bold">{{title}}</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main-section">
+        <div class="container">
+            <div class="card">
+                <div class="row g-0">
+                    <div class="col-lg-4 p-4">
+                        <p class="fw-bold mb-3">Product Information</p>
+                        <p class="text-muted mb-3">
+                            Update product information.
+                        </p>
+                    </div>
+                    <div class="col-lg-8 p-4">
+                        <form action="" id="update-product-form">
+                            <input name="pid" id="pid" type="hidden" value="{{product.id}}"class="form-control"></input>
+                            <input name="poldCategory" id="poldCategory" type="hidden" value="{{product.category_id}}"class="form-control"></input>
+                            <input name="prate" id="prate" type="hidden" value="{{product.rate}}"
+                                class="form-control"></input>
+                            <div class="row">
+                                <div class="col-sm">
+                                    <div class="form-group">
+                                        <label for="pname">Name</label>
+                                        <input name="pname" id="pname" type="text" value="{{product.name}}"
+                                            class="form-control" autocomplete="off" />
+                                    </div>
+                                </div>
+                                <div class="col-sm">
+                                    <div class="form-group">
+                                        <label for="pcategory">Category</label>
+                                        <select name="pcategory" id="pcategory" class="form-control form-select">
+                                            <option selected value={{productCategory.id}}>{{productCategory.name}}
+                                            </option>
+                                            {{#each categoryWithoutProductCategory}}
+                                                <option value={{id}}>{{name}}</option>
+                                            {{/each}}
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2 col-sm-4 col-6">
+                                    <div class="form-group">
+                                        <label for="psize">Size</label>
+                                        <select id="psize" name="psize" class="form-control form-select">
+                                            {{#each productSize}}
+                                                <option value="{{size}}">{{size}}</option>
+                                            {{/each}}
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-2 col-sm-4 col-6">
+                                    <div class="form-group">
+                                        <label for="pquantity">Quantity</label>
+                                        <input id="pquantity" name="pquantity" type="number" class="form-control" min="1" />
+                                    </div>
+                                </div>
+                                <div class="col-md-2 col-xxl-1 col-sm-2 col-4">
+                                    <div class="form-group">
+                                        <label>Update</label>
+                                        <a href="javascript:void(0)" class="btn btn-primary d-block" id="update-product-btn">
+                                            <i class="bi bi-plus"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="offset-md-0 offset-xxl-1 col-md-6 align-self-start">
+                                    <div class="table-responsive mb-3">
+                                        <table class="table mb-0 table-striped" id="table-quantities">
+                                            <thead>
+                                                <tr>
+                                                    <th class="text-center">Size</th>
+                                                    <th class="text-center">Quantity</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="list" id="psize-table">
+                                                {{#each productSize}}
+                                                <tr>
+                                                    <td class="text-center">{{size}}</td>
+                                                    <td class="text-center">{{quantity}}</td>
+                                                </tr>
+                                                {{/each}}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-4 col-8">
+                                    <div class="form-group">
+                                        <label for="pprice">Price (VNĐ)</label>
+                                        <input id="pprice" name="pprice" type="number" class="form-control"
+                                            value="{{product.price}}" min="0" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="pdesc">Description</label>
+                                <textarea name="pdesc" id="pdesc" rows="4"
+                                    class="form-control">{{product.description}}</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Images</label>
+                                <div class="d-flex flex-wrap">
+                                    {{#each productImage}}
+                                    <div class="me-3 mb-3">
+                                        <div class="avatar" style="width: 80px; height: 80px">
+                                            <img src={{image_url}} class="avatar-img rounded" alt="..." />
+                                        </div>
+                                    </div>
+                                    {{/each}}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="text-end mb-5">
+                                    <button type="submit" class="btn btn-success">Update</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
