@@ -12,11 +12,11 @@ const flash = require('connect-flash');
 // router
 const indexRouter = require('./components/dashboard');
 const userRouter = require('./components/user');
-// const profileRouter = require('./components/profile');
+const profileRouter = require('./components/profile');
 const productRouter = require('./components/product');
-// const orderRouter = require('./components/order');
+const orderRouter = require('./components/order');
 const authRouter = require('./components/auth');
-// const adminRouter = require('./components/ad');
+const adminRouter = require('./components/ad');
 const categoryRouter = require('./components/category');
 // helpers
 const helpers = require('./hbsHelpers');
@@ -61,11 +61,11 @@ app.use((req, res, next) => {
 // use routes
 app.use('/auth', authRouter);
 app.use('/users', checkAuthentication, userRouter);
-// app.use('/profile', checkAuthentication, profileRouter);
-// app.use('/orders', checkAuthentication, orderRouter);
+app.use('/profile', checkAuthentication, profileRouter);
+app.use('/orders', checkAuthentication, orderRouter);
 app.use('/products', checkAuthentication, productRouter);
 app.use('/categories', checkAuthentication, categoryRouter);
-// app.use('/admins', checkAuthentication, adminRouter);
+app.use('/admins', checkAuthentication, adminRouter);
 app.use('/', indexRouter);
 
 // catch 404 and forward to error handler
