@@ -1,0 +1,108 @@
+<div class="admin-section">
+    <div class="header-section">
+        <div class="container">
+            <nav class="navbar navbar-light navbar-expand-md p-0">
+                <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav-section"
+                    type="button">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse" id="nav-section">
+                    <ul class="nav navbar-nav">
+                        <li class="nav-item">
+                            <a href="/" class="nav-link px-3">Dashboard</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/users" class="nav-link px-3">Users</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/products" class="nav-link px-3">Products</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/categories" class="nav-link px-3">Categories</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/orders" class="nav-link px-3">Orders</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/admins" class="nav-link px-3">Admins</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <div class="intro-section">
+        <div class="container">
+            <div class="d-flex align-items-center py-30">
+                <div class="flex-grow-1 flex-shrink-1">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb mb-0 align-items-center">
+                            <li class="breadcrumb-item">
+                                <a href="/"><i class="bi bi-house-door-fill icon-1"></i></a>
+                            </li>
+                            <li class="breadcrumb-item text-uppercase active">
+                                Account
+                            </li>
+                        </ol>
+                    </nav>
+                    <h1 class="m-0 fw-bold">Edit Account</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main-section">
+        <div class="container">
+            <div class="card">
+                <div class="row g-0">
+                    <div class="col-lg-4 p-4">
+                        <p class="fw-bold mb-3">Account Information</p>
+                        <p class="text-muted mb-3">
+                            Edit your account detailss.
+                        </p>
+                    </div>
+                    <div class="col-lg-8 p-4">
+                        <form id="update-admin-form">
+                            <input name="id" id="id" type="hidden" value="{{user.id}}" class="form-control" />
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="lastName">Last Name</label>
+                                        <input name="lastName" id="lastName" type="text" class="form-control" value="{{user.last_name}}" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="firstName">First Name (Required)</label>
+                                        <input name="firstName" id="firstName" type="text" class="form-control" value="{{user.first_name}}" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="email">Email (Required)</label>
+                                        <input id="email" name="email" type="email" value="{{user.email}}" class="form-control" readonly/>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="telephone">Telephone</label>
+                                        <input id="telephone" name="telephone" value="{{user.telephone}}" class="form-control" min="0" readonly/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="text-end mb-5">
+                                    <button type="submit" class="btn btn-success">Save</button>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div id="successfullyMessage"></div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
