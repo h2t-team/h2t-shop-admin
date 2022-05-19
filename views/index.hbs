@@ -79,3 +79,49 @@
         </div>
     </div>
 </div>
+<script>
+    const formatter = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' });
+    const ctx1 = document.getElementById('revenueChart').getContext('2d');
+    const myChart1 = new Chart(ctx1, {
+        type: 'line',
+        data: {
+            labels: {{{ label1 }}},
+    datasets: [{
+        label: 'Revenue (VND)',
+        data: {{{ revenue1 }}},
+        backgroundColor:
+        'rgba(54, 162, 235, 0.2)',
+        borderColor:
+        'rgba(54, 162, 235, 1)',
+        borderWidth: 1
+            }]
+        },
+    options: {
+        scales: {
+            y: {
+                ticks: {
+                    callback: (label, index, labels) => {
+                        return formatter.format(label);
+                    }
+                }
+            }
+        }
+    }
+    });
+    const ctx2 = document.getElementById('topTenChart').getContext('2d');
+    const myChart2 = new Chart(ctx2, {
+        type: 'bar',
+        data: {
+            labels: {{{ label2 }}},
+    datasets: [{
+        label: 'Quantity',
+        data: {{{ count2 }}},
+        backgroundColor:
+        'rgba(54, 162, 235, 0.2)',
+        borderColor:
+        'rgba(54, 162, 235, 1)',
+        borderWidth: 1
+            }]
+        },
+    });
+</script>
